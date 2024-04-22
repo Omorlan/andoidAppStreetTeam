@@ -1,0 +1,28 @@
+<resources>
+
+
+   <!-- <string name="google_maps_key">AIzaSyA4h0-dleui7a3W3R8_wbQW6sKXNMO8fh0</string>-->
+    <string name="map_not_ready">Карта еще не готова</string>
+    <!--Панель навигации на карте-->
+    <string name="duration">Скорость анимации</string>
+    <string name="tilt_less">\u2193</string>
+    <string name="tilt_more">\u2191</string>
+    <string name="zoom_in">+</string>
+    <string name="zoom_out">-</string>
+    <string name="down_arrow">\u2193</string>
+    <string name="left_arrow">\u2190</string>
+    <string name="right_arrow">\u2192</string>
+    <string name="up_arrow">\u2191</string>
+    <string name="animate">\u25B6</string>
+    <string name="stop_animation">\u25A0</string>
+    <!--Названия страниц -->
+    <string name="app_name">Street Team</string>
+    <string name="map_page_name">Карта</string>
+    <string name="chat_page_name">Чат</string>
+    <string name="placeadd_page_name">Добавление новой локации</string>
+    <string name="places_page_name">Список локаций</string>
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Для определения собственной локации необходим доступ к геопозиции.</string>
+    <string name="location_permission_denied">Доступ к местоположению отклонен. Пожалуйста, повторите попытку и предоставьте доступ для использования вашего местоположения. </string>
+    <string name="permission_required_toast">Для этого приложения требуется разрешение на определение местоположения</string>
+</resources>
