@@ -1,7 +1,7 @@
 <resources>
 
 
-   <!-- <string name="google_maps_key">AIzaSyA4h0-dleui7a3W3R8_wbQW6sKXNMO8fh0</string>-->
+
     <string name="map_not_ready">Карта еще не готова</string>
     <!--Панель навигации на карте-->
     <string name="duration">Скорость анимации</string>

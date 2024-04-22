@@ -1,7 +1,7 @@
 
 
 
-package Map.locations;
+package ru.streetteam.app.Map.locations;
 
 import android.Manifest;
 import android.app.AlertDialog;

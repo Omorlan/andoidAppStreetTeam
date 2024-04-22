@@ -1,6 +1,4 @@
-package Map;
-
-import androidx.appcompat.app.AppCompatActivity;
+package ru.streetteam.app.Map;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +7,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import Database.DatabaseAdapter;
-import ru.streetteam.app.model.Place;
-import Map.locations.PlacesManagement;
-import ru.streetteam.app.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+
+import ru.streetteam.app.Database.DatabaseAdapter;
+import ru.streetteam.app.Map.locations.PlacesManagement;
+import ru.streetteam.app.R;
+import ru.streetteam.app.model.Place;
 
 public class MarkersPage extends AppCompatActivity {
 
@@ -26,13 +26,13 @@ public class MarkersPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_dbpage);
 
-        userList = (ListView)findViewById(R.id.list);
+        userList = (ListView) findViewById(R.id.list);
 
         userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Place place =arrayAdapter.getItem(position);
-                if(place !=null) {
+                Place place = arrayAdapter.getItem(position);
+                if (place != null) {
                     Intent intent = new Intent(getApplicationContext(), PlacesManagement.class);
                     intent.putExtra("id", place.getId());
                     startActivity(intent);
@@ -53,6 +53,7 @@ public class MarkersPage extends AppCompatActivity {
         userList.setAdapter(arrayAdapter);
         adapter.close();
     }
+
     // Обработчик нажатия кнопки "назад"
     public void buttonClickBack(View view) {
         System.out.println("Кнопка *Назад* нажата");
@@ -60,8 +61,9 @@ public class MarkersPage extends AppCompatActivity {
         startActivity(intent);
 
     }
+
     // по нажатию на кнопку запускаем UserActivity для добавления данных
-    public void add(View view){
+    public void add(View view) {
         Intent intent = new Intent(this, PlacesManagement.class);
         startActivity(intent);
     }

@@ -1,4 +1,4 @@
-package Database;
+package ru.streetteam.app.Database;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;

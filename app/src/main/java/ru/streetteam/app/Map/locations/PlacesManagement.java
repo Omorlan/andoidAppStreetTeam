@@ -1,4 +1,4 @@
-package Map.locations;
+package ru.streetteam.app.Map.locations;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -15,8 +15,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import Database.DatabaseAdapter;
-import Map.MarkersPage;
+import ru.streetteam.app.Database.DatabaseAdapter;
+import ru.streetteam.app.Map.MarkersPage;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.Place;
 
@@ -119,8 +119,6 @@ public class PlacesManagement extends AppCompatActivity {
             toast.setGravity(Gravity.CENTER, 0, 0);
             LinearLayout toastContainer = (LinearLayout) toast.getView();
             ImageView WarnImageView = new ImageView(getApplicationContext());
-            //TODO
-            //WarnImageView.setImageResource(R.drawable.warning);
             toastContainer.addView(WarnImageView, 0);
             toast.show();
             return true;

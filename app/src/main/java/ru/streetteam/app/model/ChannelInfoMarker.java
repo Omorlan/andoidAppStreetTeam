@@ -1,6 +1,5 @@
 package ru.streetteam.app.model;
 
-import com.google.android.gms.internal.maps.zzt;
 import com.google.android.gms.maps.model.Marker;
 
 import lombok.AllArgsConstructor;

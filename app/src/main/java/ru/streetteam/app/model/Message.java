@@ -1,6 +1,6 @@
 package ru.streetteam.app.model;
 
-import Chat.ChatActivity;
+import ru.streetteam.app.Chat.ChatActivity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

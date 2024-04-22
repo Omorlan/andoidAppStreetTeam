@@ -1,4 +1,4 @@
-package Chat;
+package ru.streetteam.app.Chat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import Map.MapPage;
 import lombok.Data;
+import ru.streetteam.app.Map.MapPage;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.Message;
 
@@ -36,15 +36,11 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
     private TextView chatName;
     private String channelId;
     private MemberData memberData;
-
+    private Random random = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_page);
-        System.out.println("                                                                     ");
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("                                 Chat open");
-        System.out.println("--------------------------------------------------------------------");
         editText = (EditText) findViewById(R.id.editText);
 
         messageAdapter = new MessageAdapter(this);
@@ -94,7 +90,6 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
 
     private String addDateToMsg(String message) {
         SimpleDateFormat formatter = new SimpleDateFormat("d.MM HH:mm  ");
-        //formatter.setTimeZone(TimeZone.getTimeZone("UTC+06"));
         Date date = new Date(System.currentTimeMillis());
         date.setHours(date.getHours() + 3);
         return String.format("%s  %s  %s  %s",
@@ -143,10 +138,9 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
     }
 
     private String getRandomColor() {
-        Random r = new Random();
         StringBuffer sb = new StringBuffer("#");
         while (sb.length() < 7) {
-            sb.append(Integer.toHexString(r.nextInt()));
+            sb.append(Integer.toHexString(random.nextInt()));
         }
         return sb.toString().substring(0, 7);
     }
@@ -170,7 +164,6 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
     }
 
 
-    
     @Data
     public static class MemberData {
         private String name;

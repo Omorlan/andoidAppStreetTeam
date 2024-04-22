@@ -1,8 +1,8 @@
-package Database;
+package ru.streetteam.app.Database;
 
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "placesss.db"; // название бд
@@ -60,19 +60,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "37.598995," +
                 "'OA6Q7ngCFVeHh8Mx'," +
                 "'observable-channel') ;");
-/*        db.execSQL("INSERT INTO " + TABLE +
-                " (" + COLUMN_LABEL + ", "
-                + COLUMN_INFO + ", "
-                + COLUMN_LATITUDE + ", "
-                + COLUMN_LONGITUDE + ", "
-                + COLUMN_CHANNEL_ID + ", "
-                + COLUMN_ROOM_NAME + " ) " +
-                "VALUES ('Football field', " +
-                "'Футбольное поле', " +
-                "55.62807341789534," +
-                " 37.60548155544935," +
-                "'w6wSvI0YGYWlqQuF', " +
-                "'observable-room') ;");*/
     }
 
 

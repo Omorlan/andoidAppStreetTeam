@@ -1,4 +1,4 @@
-package Map;
+package ru.streetteam.app.Map;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.model.Marker;
 
-import ru.streetteam.app.model.ChannelInfoMarker;
-import Chat.ChatActivity;
 import lombok.AllArgsConstructor;
+import ru.streetteam.app.Chat.ChatActivity;
 import ru.streetteam.app.R;
+import ru.streetteam.app.model.ChannelInfoMarker;
 
 @AllArgsConstructor
 public class MarkerFormWindow extends Fragment {

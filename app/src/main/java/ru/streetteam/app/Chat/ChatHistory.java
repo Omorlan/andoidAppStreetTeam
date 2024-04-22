@@ -1,4 +1,4 @@
-package Chat;
+package ru.streetteam.app.Chat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,17 +31,11 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
     private MessageHistAdapter messageAdapter;
     private ListView messagesView;
     private String channelId;
-
+    private Random random = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_history);
-        System.out.println("                                                                     ");
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("                                 Chat open");
-        System.out.println("--------------------------------------------------------------------");
-
-
         messageAdapter = new MessageHistAdapter(this);
         messagesView = (ListView) findViewById(R.id.messages_view);
         messagesView.setAdapter(messageAdapter);
@@ -85,12 +79,12 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
     }
 
     @Override
-    public void onOpen(Room room) {
+    public void onOpen(Room room) { // default implementation ignored
 
     }
 
     @Override
-    public void onOpenFailure(Room room, Exception ex) {
+    public void onOpenFailure(Room room, Exception ex) { // default implementation ignored
 
     }
 
@@ -125,10 +119,9 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
     }
 
     private String getRandomColor() {
-        Random r = new Random();
         StringBuffer sb = new StringBuffer("#");
         while (sb.length() < 7) {
-            sb.append(Integer.toHexString(r.nextInt()));
+            sb.append(Integer.toHexString(random.nextInt()));
         }
         return sb.toString().substring(0, 7);
     }

@@ -1,4 +1,4 @@
-package Map;
+package ru.streetteam.app.Map;
 
 import android.Manifest;
 import android.content.Intent;
@@ -14,11 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import ru.streetteam.app.model.ChannelInfoMarker;
-import Map.locations.PermissionUtils;
-import ru.streetteam.app.model.Place;
-import ru.streetteam.app.R;
-
 import com.appolica.interactiveinfowindow.InfoWindow;
 import com.appolica.interactiveinfowindow.InfoWindowManager;
 import com.appolica.interactiveinfowindow.fragment.MapInfoWindowFragment;
@@ -32,13 +27,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import Database.DatabaseAdapter;
+import ru.streetteam.app.Database.DatabaseAdapter;
+import ru.streetteam.app.Map.locations.PermissionUtils;
+import ru.streetteam.app.R;
+import ru.streetteam.app.model.ChannelInfoMarker;
+import ru.streetteam.app.model.Place;
 
 
 public class MapPage extends AppCompatActivity implements
@@ -286,6 +284,7 @@ public class MapPage extends AppCompatActivity implements
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
             return;
         }
@@ -312,6 +311,6 @@ public class MapPage extends AppCompatActivity implements
 
 
     @Override
-    public void onMapClick(final LatLng point) {
+    public void onMapClick(final LatLng point) { // default implementation ignored
     }
 }

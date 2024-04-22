@@ -1,4 +1,4 @@
-package Chat;
+package ru.streetteam.app.Chat;
 
 import android.app.Activity;
 import android.content.Context;
