@@ -19,7 +19,7 @@ import ru.streetteam.app.model.Message;
 
 public class MessageAdapter extends BaseAdapter {
 
-    List<Message> messages = new ArrayList<Message>();
+    List<Message> messages = new ArrayList<>();
     Context context;
 
     public MessageAdapter(Context context) {
@@ -87,10 +87,10 @@ public class MessageAdapter extends BaseAdapter {
     }
 
     static class MessageViewHolder {
-        public View avatar;
-        public TextView name;
-        public TextView messageBody;
-        public TextView messageTime;
+        private View avatar;
+        private TextView name;
+        private TextView messageBody;
+        private TextView messageTime;
     }
 }
 

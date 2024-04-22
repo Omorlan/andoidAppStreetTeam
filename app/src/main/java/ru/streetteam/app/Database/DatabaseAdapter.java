@@ -112,7 +112,7 @@ public class DatabaseAdapter {
 
     public long update(Place place) {
 
-        String whereClause = DatabaseHelper.COLUMN_ID + "=" + String.valueOf(place.getId());
+        String whereClause = DatabaseHelper.COLUMN_ID + "=" + place.getId();
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.COLUMN_LABEL, place.getLabel());
         cv.put(DatabaseHelper.COLUMN_INFO, place.getInfo());

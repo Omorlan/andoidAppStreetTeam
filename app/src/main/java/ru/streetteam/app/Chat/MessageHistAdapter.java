@@ -19,7 +19,7 @@ import ru.streetteam.app.model.Message;
 
 public class MessageHistAdapter extends BaseAdapter {
 
-    List<Message> messages = new ArrayList<Message>();
+    List<Message> messages = new ArrayList<>();
     Context context;
 
     public MessageHistAdapter(Context context) {
@@ -61,8 +61,6 @@ public class MessageHistAdapter extends BaseAdapter {
         GradientDrawable drawable = (GradientDrawable) holder.avatar.getBackground();
         convertView.setTag(holder);
         setMsgText(holder, split, drawable);
-        //name.setText(message.getMemberData().getName())holder;
-        //drawable.setColor(Color.parseColor(message.getMemberData().getColor()));
         return convertView;
     }
 

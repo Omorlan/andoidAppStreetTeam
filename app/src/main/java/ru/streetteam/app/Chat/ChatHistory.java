@@ -19,14 +19,13 @@ import com.scaledrone.lib.SubscribeOptions;
 
 import java.util.Random;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.R;
-
+@Slf4j
 public class ChatHistory extends AppCompatActivity implements RoomListener {
 
     private String roomName;
     private String roomTitle;
-    private String name;
-    private String color;
     private Scaledrone scaledrone;
     private MessageHistAdapter messageAdapter;
     private ListView messagesView;
@@ -49,7 +48,7 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
         scaledrone.connect(new Listener() {
             @Override
             public void onOpen() {
-                System.out.println("Соединение с Scaledrone открыто ");
+                log.info("Соединение с Scaledrone открыто ");
                 Room room = scaledrone.subscribe(roomName,
                         ChatHistory.this,
                         new SubscribeOptions(10));
@@ -63,17 +62,17 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onOpenFailure(Exception ex) {
-                System.err.println(ex);
+                log.warn(ex.getMessage());
             }
 
             @Override
             public void onFailure(Exception ex) {
-                System.err.println(ex);
+                log.warn(ex.getMessage());
             }
 
             @Override
             public void onClosed(String reason) {
-                System.err.println(reason);
+                log.warn(reason);
             }
         });
     }
@@ -119,7 +118,7 @@ public class ChatHistory extends AppCompatActivity implements RoomListener {
     }
 
     private String getRandomColor() {
-        StringBuffer sb = new StringBuffer("#");
+        StringBuilder sb = new StringBuilder("#");
         while (sb.length() < 7) {
             sb.append(Integer.toHexString(random.nextInt()));
         }

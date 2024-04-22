@@ -11,11 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.Database.DatabaseAdapter;
 import ru.streetteam.app.Map.locations.PlacesManagement;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.Place;
-
+@Slf4j
 public class MarkersPage extends AppCompatActivity {
 
     private ListView userList;
@@ -56,7 +57,7 @@ public class MarkersPage extends AppCompatActivity {
 
     // Обработчик нажатия кнопки "назад"
     public void buttonClickBack(View view) {
-        System.out.println("Кнопка *Назад* нажата");
+        log.info("Кнопка *Назад* нажата");
         Intent intent = new Intent(MarkersPage.this, MapPage.class);
         startActivity(intent);
 
@@ -64,6 +65,7 @@ public class MarkersPage extends AppCompatActivity {
 
     // по нажатию на кнопку запускаем UserActivity для добавления данных
     public void add(View view) {
+        log.info("Кнопка *Добавить маркер* нажата");
         Intent intent = new Intent(this, PlacesManagement.class);
         startActivity(intent);
     }

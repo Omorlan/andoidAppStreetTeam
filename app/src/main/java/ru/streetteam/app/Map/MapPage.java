@@ -32,13 +32,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.Database.DatabaseAdapter;
 import ru.streetteam.app.Map.locations.PermissionUtils;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.ChannelInfoMarker;
 import ru.streetteam.app.model.Place;
 
-
+@Slf4j
 public class MapPage extends AppCompatActivity implements
         GoogleMap.OnMarkerClickListener,
         GoogleMap.OnMapClickListener,
@@ -195,7 +196,7 @@ public class MapPage extends AppCompatActivity implements
 
     // Обработчик нажатия кнопки "Список локаций"
     public void markersClick(View view) {
-        System.out.println("Кнопка *Список локаций* нажата");
+        log.info("Кнопка *Список локаций* нажата");
         Intent intent = new Intent(MapPage.this, MarkersPage.class);
         startActivity(intent);
     }

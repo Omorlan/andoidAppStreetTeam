@@ -15,11 +15,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.Database.DatabaseAdapter;
 import ru.streetteam.app.Map.MarkersPage;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.Place;
 
+@Slf4j
 public class PlacesManagement extends AppCompatActivity {
 
     private EditText latBox;
@@ -28,8 +30,7 @@ public class PlacesManagement extends AppCompatActivity {
     private EditText lonBox;
     private EditText chanId;
     private EditText roomName;
-    private Button delButton;
-    final int DIALOG_EXIT = 1;
+    private static final int DIALOG_EXIT = 1;
     private DatabaseAdapter adapter;
     private long userId = 0;
 
@@ -43,7 +44,7 @@ public class PlacesManagement extends AppCompatActivity {
         lonBox = (EditText) findViewById(R.id.longitude);
         chanId = (EditText) findViewById(R.id.channelId);
         roomName = (EditText) findViewById(R.id.roomName);
-        delButton = (Button) findViewById(R.id.deleteButton);
+        Button delButton = (Button) findViewById(R.id.deleteButton);
         adapter = new DatabaseAdapter(this);
 
         Bundle extras = getIntent().getExtras();
@@ -68,7 +69,7 @@ public class PlacesManagement extends AppCompatActivity {
     }
 
     public void save(View view) {
-        System.out.println("The *Save* button is pressed");
+        log.info("The *Save* button is pressed");
         String label = labelBox.getText().toString();
         if (checkFieldLenght(label, "Введите Название маркера!")) {
             return;
@@ -118,8 +119,8 @@ public class PlacesManagement extends AppCompatActivity {
             Toast toast = Toast.makeText(this, s, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             LinearLayout toastContainer = (LinearLayout) toast.getView();
-            ImageView WarnImageView = new ImageView(getApplicationContext());
-            toastContainer.addView(WarnImageView, 0);
+            ImageView warnImageView = new ImageView(getApplicationContext());
+            toastContainer.addView(warnImageView, 0);
             toast.show();
             return true;
         }
@@ -128,12 +129,12 @@ public class PlacesManagement extends AppCompatActivity {
 
 
     public void delete(View view) {
-
-        System.out.println("The *Delete* button is pressed");
+        log.info("The *Delete* button is pressed");
         showDialog(DIALOG_EXIT);
 
     }
 
+    @Override
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_EXIT) {
             AlertDialog.Builder adb = new AlertDialog.Builder(this);
@@ -142,9 +143,9 @@ public class PlacesManagement extends AppCompatActivity {
             // сообщение
             adb.setMessage("Вы уверены, что хотите удалить маркер?");
             // кнопка положительного ответа
-            adb.setPositiveButton("Да", (DialogInterface.OnClickListener) myClickListener);
+            adb.setPositiveButton("Да", myClickListener);
             // кнопка отрицательного ответа
-            adb.setNegativeButton("Нет", (DialogInterface.OnClickListener) myClickListener);
+            adb.setNegativeButton("Нет", myClickListener);
 
             // создаем диалог
             return adb.create();
@@ -156,22 +157,22 @@ public class PlacesManagement extends AppCompatActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 // положительная кнопка
-                case Dialog.BUTTON_POSITIVE:
+                case DialogInterface.BUTTON_POSITIVE:
                     adapter.open();
                     adapter.delete(userId);
                     adapter.close();
                     finish();
                     break;
                 // негативная кнопка
-                case Dialog.BUTTON_NEGATIVE:
+                case DialogInterface.BUTTON_NEGATIVE:
                     finish();
                     break;
             }
         }
     };
 
-    public void BackToList(View view) {
-        System.out.println("Кнопка *Назад* нажата");
+    public void backToList(View view) {
+        log.info("Кнопка *Назад* нажата");
         Intent intent = new Intent(PlacesManagement.this, MarkersPage.class);
         startActivity(intent);
     }

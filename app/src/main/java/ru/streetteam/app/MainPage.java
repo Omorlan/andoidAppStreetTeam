@@ -7,11 +7,12 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.Chat.ChatActivity;
 import ru.streetteam.app.Map.MapPage;
 import ru.streetteam.app.Map.MarkersPage;
 
-
+@Slf4j
 public class MainPage extends AppCompatActivity {
 
     @Override
@@ -25,21 +26,21 @@ public class MainPage extends AppCompatActivity {
 
     // Обработчик нажатия для перехода к активити профиля
     public void buttonClickProfile(View view) {
-        System.out.println("The *Profile* button is pressed");
+        log.info("The Profile button is pressed");
         Intent intent = new Intent(MainPage.this, MarkersPage.class);
         startActivity(intent);
     }
 
     // Обработчик нажатия для перехода к активити карты
     public void buttonClickMap(View view) {
-        System.out.println("The *ru.streetteam.app.Map* button is pressed");
+        log.info("The Map button is pressed");
         Intent intent = new Intent(MainPage.this, MapPage.class);
         startActivity(intent);
     }
 
     // Обработчик нажатия для перехода к активити чата
     public void buttonClickChat(View view) {
-        System.out.println("The *ru.streetteam.app.Chat* button is pressed");
+        log.info("The Chat button is pressed");
         Intent intent = new Intent(MainPage.this, ChatActivity.class);
         startActivity(intent);
 

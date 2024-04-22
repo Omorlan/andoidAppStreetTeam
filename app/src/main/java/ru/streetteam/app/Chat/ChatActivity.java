@@ -21,10 +21,11 @@ import java.util.Date;
 import java.util.Random;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import ru.streetteam.app.Map.MapPage;
 import ru.streetteam.app.R;
 import ru.streetteam.app.model.Message;
-
+@Slf4j
 public class ChatActivity extends AppCompatActivity implements RoomListener {
 
     private String roomName;
@@ -59,23 +60,23 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
         scaledrone.connect(new Listener() {
             @Override
             public void onOpen() {
-                System.out.println("Соединение с Scaledrone открыто ");
+                log.info("Соединение с Scaledrone открыто");
                 scaledrone.subscribe(roomName, ChatActivity.this);
             }
 
             @Override
             public void onOpenFailure(Exception ex) {
-                System.err.println(ex);
+                log.warn(ex.getMessage());
             }
 
             @Override
             public void onFailure(Exception ex) {
-                System.err.println(ex);
+                log.warn(ex.getMessage());
             }
 
             @Override
             public void onClosed(String reason) {
-                System.err.println(reason);
+                log.warn(reason);
             }
         });
     }
@@ -101,12 +102,12 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
 
     @Override
     public void onOpen(Room room) {
-        System.out.println("Подключение к комнате");
+        log.info("Подключение к комнате");
     }
 
     @Override
     public void onOpenFailure(Room room, Exception ex) {
-        System.err.println(ex);
+        log.warn(ex.getMessage());
     }
 
     @Override
@@ -124,7 +125,7 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
                 }
             });
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+           log.error(e.getMessage());
         }
     }
 
@@ -138,7 +139,7 @@ public class ChatActivity extends AppCompatActivity implements RoomListener {
     }
 
     private String getRandomColor() {
-        StringBuffer sb = new StringBuffer("#");
+        StringBuilder sb = new StringBuilder("#");
         while (sb.length() < 7) {
             sb.append(Integer.toHexString(random.nextInt()));
         }
